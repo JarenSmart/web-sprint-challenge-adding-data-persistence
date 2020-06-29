@@ -4,6 +4,18 @@ const Resources = require("../models/resource");
 
 const router = express.Router();
 
+//GET ALL RESOURCES
+router.get("/resources", async (req, res, next) => {
+  try {
+    const allResources = await Resources.find();
+    res.json(allResources);
+  } catch (err) {
+    res.status(500).json({ message: "Unable to get list of all resources" });
+    next(err);
+  }
+});
+
+//STRETCH (GET RESOURCES BY PROJECT ID)
 router.get("/projects/:id/resources", (req, res) => {
   const { id } = req.params;
 
@@ -23,6 +35,7 @@ router.get("/projects/:id/resources", (req, res) => {
     });
 });
 
+//ADD RESOURCE
 router.post("/projects/:id/resources", (req, res) => {
   const { id } = req.params;
   const newResource = {

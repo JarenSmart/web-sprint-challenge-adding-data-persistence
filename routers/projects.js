@@ -4,6 +4,7 @@ const Projects = require("../models/project");
 
 const router = express.Router();
 
+//GET ALL PROJECTS
 router.get("/projects", async (req, res, next) => {
   try {
     const allProjects = await Projects.find();
@@ -14,6 +15,7 @@ router.get("/projects", async (req, res, next) => {
   }
 });
 
+//ADD PROJECT
 router.post("/projects", (req, res, next) => {
   const projectData = req.body;
 
