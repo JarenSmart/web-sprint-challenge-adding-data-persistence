@@ -1,5 +1,5 @@
 exports.seed = async function (knex) {
-  await knex("resources").insert([
+  await knex("tasks").insert([
     {
       project_id: 1,
       notes: "Finish school",

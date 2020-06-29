@@ -25,7 +25,7 @@ exports.up = async function (knex) {
       .inTable("projects")
       .notNull()
       .onUpdate("CASCADE");
-    table.text("notes").notNull();
+    table.text("notes");
     table.text("description").notNull();
     table.boolean("completed").defaultTo(false);
   });
